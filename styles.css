@@ -1,0 +1,245 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(45deg, #ff0066, #ffcc00, #00ccff);
+    background-size: 300% 300%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: backgroundAnimation 15s ease infinite;
+ }
+ 
+ 
+ /* Animación del fondo */
+ @keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 0%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 50%; }
+ }
+ 
+ 
+ /* Pantalla de introducción */
+ .intro-screen {
+    text-align: center;
+    background-color: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+ }
+ 
+ 
+ /* Botón de comienzo */
+ #start-button {
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ }
+ 
+ 
+ #start-button:hover {
+    background-color: #218838;
+ }
+ 
+ 
+ /* Contenedor principal del juego */
+ .container {
+    max-width: 700px;
+    width: 100%;
+    height: 450px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+ }
+ 
+ 
+ /* Reloj animado circular en la esquina superior derecha */
+ .animated-clock {
+    width: 50px; /* Tamaño reducido */
+    height: 50px; /* Tamaño reducido */
+    border-radius: 50%;
+    position: absolute;
+    top: 10px; /* Ajustado para estar más cerca de la esquina */
+    right: 10px; /* Ajustado para estar en la esquina */
+    background: conic-gradient(#ff0000 0deg, transparent 0deg);
+    animation: fillClock 10s linear infinite;
+ }
+ 
+ 
+ /* Detener la animación del reloj cuando el juego termina */
+ .animated-clock.paused {
+    animation-play-state: paused;
+ }
+ 
+ 
+ /* Reloj de fondo */
+ .clock-face {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #555;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 1;
+ }
+ 
+ 
+ /* Manecilla del reloj */
+ .clock-hand {
+    width: 4px;
+    height: 50%;
+    background-color: #2e2b2b;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom center;
+    animation: rotateHand 10s linear infinite; /* Mantener la animación */
+    transition: background-color 1s ease; /* Transición suave para el cambio de color */
+ }
+ 
+ 
+ /* Detener la animación de la manecilla cuando el juego termina */
+ .clock-hand.paused {
+    animation-play-state: paused;
+ }
+ 
+ 
+ /* Centro del reloj */
+ .clock-center {
+    width: 12px;
+    height: 12px;
+    background-color: #555;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
+ 
+ 
+ /* Animación de llenado circular */
+ @keyframes fillClock {
+    0% { background: conic-gradient(#ff0000 0deg, transparent 0deg); }
+    100% { background: conic-gradient(#ff0000 360deg, transparent 360deg); }
+ }
+ 
+ 
+ /* Animación de la manecilla */
+ @keyframes rotateHand {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+ }
+ 
+ 
+ /* Animación de rebote para respuestas correctas */
+ @keyframes bounce {
+    0% { transform: scale(1); }
+    20% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    100% { transform: scale(1); }
+ }
+ 
+ 
+ .correct-bounce {
+    animation: bounce 0.5s ease-out;
+ }
+ 
+ 
+ /* Animación de desvanecimiento para respuestas incorrectas */
+ @keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 0; transform: scale(0.9); }
+ }
+ 
+ 
+ .incorrect-fade {
+    animation: fadeOut 0.5s ease-out;
+ }
+ 
+ 
+ /* Estilo para la opción incorrecta */
+ .option-button.incorrect {
+    background-color: #f44336; /* Rojo brillante */
+    opacity: 0.7; /* Opacidad para un efecto más suave */
+ }
+ 
+ 
+ /* Opcional: Sombra ligera cuando se marca incorrecta */
+ .option-button.incorrect:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+ }
+ 
+ 
+ /* Opciones de respuesta */
+ .option-button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #e0e0e0; /* Gris claro */
+    color: #333; /* Texto oscuro para buen contraste */
+    font-size: 18px;
+    border: 2px solid #bbb; /* Borde sutil */
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+ }
+ 
+ 
+ /* Opción correcta */
+ .option-button.correct {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
+ }
+ 
+ 
+ /* Opciones incorrectas al hacer hover */
+ .option-button:hover {
+    background-color: #90caf9; /* Azul claro */
+    color: #333; /* Texto oscuro */
+ }
+ 
+ 
+ #restart-button {
+    margin-top: 20px;
+    padding: 20px 40px; /* Aumenté el tamaño del botón */
+    font-size: 1.5em; /* Aumenté el tamaño de la fuente */
+    background-color: rgb(255, 87, 34); /* RGB para un color rojo-anaranjado */
+    color: white;
+    border: none;
+    border-radius: 20px; /* Hice los bordes un poco más redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none; /* Oculto hasta que se necesite */
+    position: absolute;
+    top: 40%;
+    left: 39%; /* Centrado en la pantalla */
+ }
+ 
+ 
+ #restart-button:hover {
+    background-color: rgb(230, 74, 25); /* RGB más oscuro para el hover */
+ }
+ 
+ 
+ .hidden { display: none; }
