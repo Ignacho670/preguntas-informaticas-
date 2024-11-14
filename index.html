@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Juego de Preguntas Informáticas</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- Pantalla de introducción -->
+   <div id="intro-screen" class="intro-screen">
+       <h1>Juego de preguntas sobre seguridad Informáticas</h1>
+       <button id="start-button">Comenzar</button>
+   </div>
+
+
+
+
+   <!-- Contenedor principal del juego -->
+   <div id="game-container" class="container hidden">
+       <!-- Reloj animado circular -->
+       <div id="animated-clock" class="animated-clock">
+           <div class="clock-face">
+               <div class="clock-hand"></div>
+               <div class="clock-center"></div>
+           </div>
+       </div>
+       <div id="timer" class="timer">Tiempo restante: 0:00</div>
+       <h2 id="question-text" class="question">Pregunta aquí</h2>
+       <div class="options">
+           <button class="option-button">Opción 1</button>
+           <button class="option-button">Opción 2</button>
+           <button class="option-button">Opción 3</button>
+           <button class="option-button">Opción 4</button>
+       </div>
+       <div id="result" class="result"></div>
+       <button id="restart-button" class="hidden">Reiniciar</button>
+   </div>
+
+
+
+
+   <script src="script.js"></script>
+</body>
+</html>
